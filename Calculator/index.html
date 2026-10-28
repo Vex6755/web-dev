@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calendar & Digital Clock</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="clock" aria-label="Digital clock">
+      <time id="clock-time" class="clock-time">00:00:00</time>
+      <p id="clock-date" class="clock-date"></p>
+      <button id="clock-format" class="link-btn" type="button">Switch to 24-hour</button>
+    </section>
+
+    <section class="calendar" aria-label="Calendar">
+      <header class="cal-head">
+        <button id="prev" class="nav-btn" type="button" aria-label="Previous month">&#8249;</button>
+        <h1 id="month-label">Month Year</h1>
+        <button id="next" class="nav-btn" type="button" aria-label="Next month">&#8250;</button>
+      </header>
+      <div class="weekdays" aria-hidden="true">
+        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+      </div>
+      <div id="grid" class="grid"></div>
+      <p class="hint">Click a date to see its events. Double-click to add one.</p>
+    </section>
+
+    <section class="panel" aria-live="polite">
+      <h2 id="panel-date">Select a date</h2>
+      <ul id="event-list" class="event-list"></ul>
+      <button id="add-btn" class="primary-btn" type="button">Add event</button>
+    </section>
+  </main>
+
+  <dialog id="dialog">
+    <form id="event-form">
+      <h3>New event</h3>
+      <label>Title
+        <input id="ev-title" type="text" maxlength="80" required placeholder="Study group, deadline...">
+      </label>
+      <label>Time (optional)
+        <input id="ev-time" type="time">
+      </label>
+      <div class="dialog-actions">
+        <button type="button" id="cancel" class="link-btn">Cancel</button>
+        <button type="submit" class="primary-btn">Save event</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
